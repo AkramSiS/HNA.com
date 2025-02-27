@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>HNA Summary Flashcards – One Card at a Time</title>
+  <!-- Ensures the page scales correctly on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HNA Summary Flashcards – Mobile Friendly</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -13,6 +15,7 @@
     }
     #flashcard-container {
       max-width: 600px;
+      width: 90%;
       margin: 20px auto;
       background: #fff;
       border-radius: 8px;
@@ -22,12 +25,29 @@
     }
     h2 {
       margin-top: 0;
+      font-size: 1.4em;
+    }
+    p {
+      font-size: 1em;
+      line-height: 1.4em;
     }
     button {
       padding: 10px 20px;
       margin: 10px 5px;
-      font-size: 16px;
+      font-size: 1em;
       cursor: pointer;
+    }
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 1.2em;
+      }
+      p {
+        font-size: 0.9em;
+      }
+      button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+      }
     }
   </style>
 </head>
@@ -112,7 +132,7 @@
       },
       {
         front: "Lecture 2: Ion Channels & Na⁺/K⁺ Pump",
-        back: "Ion channels allow ions to flow across the neuron's membrane. Typically, sodium (Na⁺) is more concentrated outside the cell and potassium (K⁺) inside. The Na⁺/K⁺ pump actively maintains this imbalance."
+        back: "Ion channels allow the flow of ions across the neuron's membrane. Typically, sodium (Na⁺) is more concentrated outside the cell and potassium (K⁺) inside. The Na⁺/K⁺ pump actively maintains this imbalance."
       },
       {
         front: "Lecture 2: Membrane Potential & Activation",
