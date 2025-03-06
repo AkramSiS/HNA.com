@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- Ensures the page scales correctly on mobile devices -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HNA Summary Flashcards – Mobile Friendly</title>
+  <title>Social Network Analysis Flashcards</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -52,7 +51,7 @@
   </style>
 </head>
 <body>
-  <h1>HNA Summary Flashcards</h1>
+  <h1>Social Network Analysis Flashcards</h1>
   <div id="flashcard-container">
     <div id="card-front"></div>
     <hr>
@@ -64,172 +63,19 @@
   </div>
 
   <script>
-    // Array of flashcards containing all info from the document
     var flashcards = [
-      {
-        front: "Lecture 1: Artificial Deep Networks – Overview",
-        back: "Uses neural networks as layered “brain cells” that process information and learn from experience. Tasks include image processing, game opponents, natural language processing, and simulation of biological systems. Emphasizes learning from experience and building hierarchical representations."
-      },
-      {
-        front: "Lecture 1: Features & Representations",
-        back: "Feature: An individual piece of data. Representation: How features are formatted or structured (e.g., a color can be 'red' or represented as RGB values (255, 0, 0); Cartesian coordinates can be converted to polar coordinates). Aim: To choose the right features and represent them usefully."
-      },
-      {
-        front: "Lecture 1: Feature Transformation & Extraction",
-        back: "Deep networks automatically transform raw data into meaningful representations. For example, in image recognition, early layers detect edges, mid layers detect shapes, and deeper layers recognize objects."
-      },
-      {
-        front: "Lecture 1: Layered Representations",
-        back: "Each layer builds on the previous one, starting with simple patterns and gradually combining them into complex structures, which helps the network learn deep patterns in data."
-      },
-      {
-        front: "Lecture 1: Machine Learning Definition (Tom Mitchell, 1998)",
-        back: "\"A computer program is said to learn from experience (E) with respect to some class of tasks (T) and performance measure (P) if its performance at tasks in T, as measured by P, improves with experience E.\""
-      },
-      {
-        front: "Lecture 1: Deep Network & Object Recognition",
-        back: "A deep network uses multiple nonlinear layers to transform or extract features. In object recognition, early layers extract simple features like edges and contours; deeper layers combine these features to recognize whole objects (similar to CNNs)."
-      },
-      {
-        front: "Lecture 1: Filter/Convolve Operation",
-        back: "A small filter (kernel) slides over an image, multiplies corresponding values, sums them up, and creates a feature map. Filter values are learned automatically during training."
-      },
-      {
-        front: "Lecture 1: FCN vs. CNN",
-        back: "CNNs respect spatial structure (ideal for images, audio, text), while FCNs connect every node to all nodes in the previous layer, making them less efficient for structured data. (1D CNNs work for sequential data; 2D CNNs for images.)"
-      },
-      {
-        front: "Lecture 1: Threshold/Rectification Operation",
-        back: "After filtering, the result passes through a nonlinear activation function (typically ReLU: f(x)=max(0, x)) which zeros out negative values, introducing nonlinearity into the network."
-      },
-      {
-        front: "Lecture 1: Pooling Operation",
-        back: "Pooling downsamples activation maps to reduce computational load. For example, max pooling takes the maximum value within a 2×2 region."
-      },
-      {
-        front: "Lecture 1: Normalization Operation",
-        back: "Normalization scales activation levels so that each feature map has a zero mean and unit variance, ensuring that all maps contribute similarly and improving training speed."
-      },
-      {
-        front: "Lecture 1: Practice Example",
-        back: "Example: An input image of 32×32×3 is convolved with a 5×5×3 filter to produce a 28×28×1 activation map. Repeated convolutions with different filters build a hierarchy of feature maps."
-      },
-      {
-        front: "Lecture 1: Shared Weights",
-        back: "The same filter (set of weights) is applied across different regions of the input image, ensuring that a feature detected in one location is recognized in another, providing translation invariance."
-      },
-      {
-        front: "Lecture 1: Classification & Softmax",
-        back: "After convolution layers, feature maps are flattened and fed into a fully-connected layer. The softmax operation then converts raw scores into probabilities for each class. Small differences in raw scores can lead to large differences in probabilities."
-      },
-      {
-        front: "Lecture 1: Final Summary of Operations",
-        back: "Key operations include: Convolution, Thresholding (ReLU), Pooling, Normalization, a Fully-connected classification layer, and Softmax activation."
-      },
-      {
-        front: "Lecture 2: Biological Neurons & Networks – Overview",
-        back: "Biological neurons adjust synaptic strengths based on experience. Hebb’s postulate ('cells that fire together, wire together') is central to this process."
-      },
-      {
-        front: "Lecture 2: Ion Channels & Na⁺/K⁺ Pump",
-        back: "Ion channels allow the flow of ions across the neuron's membrane. Typically, sodium (Na⁺) is more concentrated outside the cell and potassium (K⁺) inside. The Na⁺/K⁺ pump actively maintains this imbalance."
-      },
-      {
-        front: "Lecture 2: Membrane Potential & Activation",
-        back: "The ion imbalance creates a voltage difference (membrane potential). When depolarization reaches around –55mV, the neuron fires an action potential."
-      },
-      {
-        front: "Lecture 2: Opening the Ion Channel",
-        back: "There are two ways channels open: 1. Active Opening: Neurotransmitters (e.g., Glu⁺ excites, GABA inhibits) bind to channels, changing their shape; 2. Voltage-Gated: Channels open further as the membrane voltage increases."
-      },
-      {
-        front: "Lecture 2: EPSPs & Action Potentials",
-        back: "EPSPs (excitatory postsynaptic potentials) depolarize the neuron; if summed sufficiently, they trigger an action potential with rising, falling, and undershoot phases. IPSPs (inhibitory postsynaptic potentials) counteract this effect."
-      },
-      {
-        front: "Lecture 2: Neurotransmitter Release",
-        back: "An action potential triggers the opening of voltage-gated Ca²⁺ channels, which in turn causes neurotransmitters stored in vesicles to be released and propagate the signal to the next neuron."
-      },
-      {
-        front: "Lecture 2: Backpropagation & Gradient Descent",
-        back: "In artificial neural networks, errors are propagated backward using the chain rule and weights are updated via gradient descent. Biological learning, however, occurs through local, unsupervised processes."
-      },
-      {
-        front: "Lecture 2: Equivalent Structures",
-        back: "Comparisons between biological and artificial systems include: Bio dendrite integration ≈ convolution; Bio threshold ≈ rectification (ReLU); Normalization ≈ surround suppression; and distributed coding (multiple neurons represent an object) vs. exclusive coding."
-      },
-      {
-        front: "Lecture 2: Input Feature Maps & Cortical Maps",
-        back: "The retina’s photoreceptors (cones for color, rods for low light) form the input image. In V1, this image is transformed into a neuronal representation that preserves spatial relationships, with central vision being denser than peripheral."
-      },
-      {
-        front: "Lecture 3: Feedforward Visual Processing – Overview",
-        back: "This section covers how visual information is processed from the retina through V1, emphasizing eccentricity and receptive fields."
-      },
-      {
-        front: "Lecture 3: Eccentricity & Receptive Fields",
-        back: "Eccentricity is the distance from the center of gaze. Receptive fields increase in size from the fovea (center) to the periphery."
-      },
-      {
-        front: "Lecture 3: Diversity in Receptive Field Sizes",
-        back: "At the same eccentricity, different ganglion cells (e.g., midget, parasol) have different receptive field sizes. Smaller fields capture fine details; larger fields capture broader patterns."
-      },
-      {
-        front: "Lecture 3: Spatial Frequency Processing",
-        back: "Low spatial frequencies capture broad light/dark regions, whereas high spatial frequencies capture sharp edges and fine details. The combination is used to reconstruct the original image."
-      },
-      {
-        front: "Lecture 3: Bio vs. Artificial Networks",
-        back: "Biological vision uses multiple, varied receptive field sizes in parallel. In contrast, artificial networks typically use fixed-size filters processed sequentially."
-      },
-      {
-        front: "Lecture 3: Shared Weights & Orientation Detection",
-        back: "Biological systems have locally varying weights; CNNs use shared weights. In V1, edge orientations are detected via orientation columns, representing orientation as a continuous third dimension."
-      },
-      {
-        front: "Lecture 3: Neuronal Organization in V1",
-        back: "Neurons in V1 are organized by spatial location and orientation into cortical columns. Hypercolumns (about 2×2 mm) contain all feature maps (color, spatial frequency, orientation, motion) for one image location."
-      },
-      {
-        front: "Lecture 3: Visual Pathways Beyond V1",
-        back: "There are two main pathways: Ventral (the 'What' pathway for object recognition; damage leads to visual agnosia) and Dorsal (the 'Where' pathway for spatial processing; damage leads to optic ataxia). About 30 visual field maps exist beyond V1; deep networks use skip connections to mimic this complexity."
-      },
-      {
-        front: "Lecture 3: Hierarchical Spatial Integration",
-        back: "Early small receptive fields integrate into larger, abstract representations in higher visual areas (e.g., from V1 to V4, IT). In the brain, this integration is seen as a 'connective field' rather than a simple 'receptive field.'"
-      },
-      {
-        front: "Lecture 3: Distributed Encoding & Object-Selectivity",
-        back: "Object identity is represented by a distributed pattern across many neurons, which makes the system robust to cell loss and efficient for storing new patterns. In the IT cortex, neurons respond consistently to a variety of objects."
-      },
-      {
-        front: "Lecture 4: Recurrent Visual Processing – Overview",
-        back: "This section examines how biological visual processing uses feedforward, feedback, and lateral (recurrent) connections – unlike traditional artificial networks which are mostly feedforward."
-      },
-      {
-        front: "Lecture 4: Network Connections",
-        back: "Biological networks employ feedforward (bottom-up), feedback (top-down), and lateral connections. Traditional artificial networks use mostly feedforward connections, though recurrent networks now incorporate feedback and lateral elements."
-      },
-      {
-        front: "Lecture 4: Recurrent Processing & Dynamics",
-        back: "Recurrent activity creates oscillations (brain waves) and dynamic, non-fixed states. This is crucial for processing sequential or time-dependent data, allowing the network to refine its understanding over multiple passes."
-      },
-      {
-        front: "Lecture 4: Digit Recognition & BLT Networks",
-        back: "Feedforward networks struggle with heavy debris on digits. BLT (Bottom-Lateral-Top) networks reuse layers recurrently, greatly improving accuracy with fewer parameters. For example, the Cornet-S network (a 4-layer recurrent network) performs comparably to a 100-layer feedforward network."
-      },
-      {
-        front: "Lecture 4: Attractor/Hopfield Networks",
-        back: "Attractor or Hopfield networks are fully recurrent networks that, using Hebbian learning, can retrieve complete patterns from partial inputs. This aids in error correction and approaches human-like performance on occluded images."
-      },
-      {
-        front: "Lecture 4: Predictive Coding in the Brain",
-        back: "Higher brain areas generate predictions of expected sensory input, which are sent back to lower areas. If the prediction matches, inhibition occurs; if not, a prediction error refines the model. PredNets implement this by minimizing prediction error and overall network activation."
-      },
-      {
-        front: "Lecture 4: Blue Brain & Neuromorphic Processors",
-        back: "The Blue Brain Project aims to map all neural connections (e.g., in a mouse brain). Neuromorphic processors are specialized hardware designed to run neural simulations, though they still face challenges with computing power."
-      }
+      { front: "What are LLM-driven social generative agents, and what capabilities do they possess beyond simply role-playing?", back: "They are AI-driven agents used for social experiments, surveys, and interviews. Beyond role-playing, they can create profiles, retain memory, reflect, and learn from interactions, enabling dynamic social simulations." },
+      { front: "Explain the difference between indegree and outdegree in a directed network, providing an example.", back: "Indegree is the number of incoming edges (e.g., number of followers on Twitter), while outdegree is the number of outgoing edges (e.g., number of people you follow)." },
+      { front: "Describe what closeness centrality measures and how it is calculated.", back: "Closeness centrality measures how close a node is to all others by summing the shortest path distances and taking the inverse." },
+      { front: "Explain the concept of betweenness centrality and why nodes with high betweenness centrality are significant.", back: "Betweenness centrality measures how often a node appears on the shortest paths between other nodes. High values indicate key bridges that control information flow." },
+      { front: "How does eigenvector centrality differ from degree centrality, and why is it considered a measure of 'quality over quantity'?", back: "Degree centrality counts direct connections, whereas eigenvector centrality prioritizes connections to influential nodes, making it a better measure of overall influence." },
+      { front: "What does the local clustering coefficient measure, and what does a high clustering coefficient indicate about a node's network?", back: "It measures how likely a node's neighbors are connected. A high coefficient suggests a tightly-knit community." },
+      { front: "What are the three mechanisms that explain transitivity tendency in a social network?", back: "Meeting opportunities, homophily (preference for similar individuals), and structural balance (people prefer balanced social relationships)." },
+      { front: "Define modularity in the context of network analysis and explain what a high modularity value signifies.", back: "Modularity measures the strength of network division into communities. A high value indicates well-defined, separate communities with strong internal connections." },
+      { front: "What are the key differences between Watts-Strogatz and Barabási-Albert models?", back: "Watts-Strogatz explains small-world networks with high clustering and short path lengths, while Barabási-Albert models scale-free networks where a few nodes become highly connected hubs through preferential attachment." },
+      { front: "What is network robustness, and how does it relate to scale-free networks?", back: "Network robustness refers to the ability to withstand node failures. Scale-free networks are resilient to random failures but vulnerable to targeted attacks on hubs." },
+      { front: "What is the epidemic threshold in network analysis, and why do scale-free networks often lack one?", back: "The epidemic threshold is the point at which an infection can spread widely. Scale-free networks often lack a threshold due to the presence of highly connected hubs." },
+      { front: "What are the main applications of social network analysis?", back: "Applications include disease modeling, marketing and influence maximization, recommendation systems, cybersecurity, and organizational analysis." }
     ];
     
     var currentIndex = 0;
