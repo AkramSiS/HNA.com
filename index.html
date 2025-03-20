@@ -64,64 +64,28 @@
 
   <script>
     var flashcards = [
-      { front: "What are LLM-driven social generative agents, and what capabilities do they possess beyond simply role-playing?", back: "They are AI-driven agents used for social experiments, surveys, and interviews. Beyond role-playing, they can create profiles, retain memory, reflect, and learn from interactions, enabling dynamic social simulations." },
-      { front: "Explain the difference between indegree and outdegree in a directed network, providing an example.", back: "Indegree is the number of incoming edges (e.g., number of followers on Twitter), while outdegree is the number of outgoing edges (e.g., number of people you follow)." },
-      { front: "Describe what closeness centrality measures and how it is calculated.", back: "Closeness centrality measures how close a node is to all others by summing the shortest path distances and taking the inverse." },
-      { front: "Explain the concept of betweenness centrality and why nodes with high betweenness centrality are significant.", back: "Betweenness centrality measures how often a node appears on the shortest paths between other nodes. High values indicate key bridges that control information flow." },
-      { front: "How does eigenvector centrality differ from degree centrality, and why is it considered a measure of 'quality over quantity'?", back: "Degree centrality counts direct connections, whereas eigenvector centrality prioritizes connections to influential nodes, making it a better measure of overall influence." },
-      { front: "What does the local clustering coefficient measure, and what does a high clustering coefficient indicate about a node's network?", back: "It measures how likely a node's neighbors are connected. A high coefficient suggests a tightly-knit community." },
-      { front: "What are the three mechanisms that explain transitivity tendency in a social network?", back: "Meeting opportunities, homophily (preference for similar individuals), and structural balance (people prefer balanced social relationships)." },
-      { front: "Define modularity in the context of network analysis and explain what a high modularity value signifies.", back: "Modularity measures the strength of network division into communities. A high value indicates well-defined, separate communities with strong internal connections." },
-      { front: "What are the key differences between Watts-Strogatz and Barabási-Albert models?", back: "Watts-Strogatz explains small-world networks with high clustering and short path lengths, while Barabási-Albert models scale-free networks where a few nodes become highly connected hubs through preferential attachment." },
-      { front: "What is network robustness, and how does it relate to scale-free networks?", back: "Network robustness refers to the ability to withstand node failures. Scale-free networks are resilient to random failures but vulnerable to targeted attacks on hubs." },
-      { front: "What is the epidemic threshold in network analysis, and why do scale-free networks often lack one?", back: "The epidemic threshold is the point at which an infection can spread widely. Scale-free networks often lack a threshold due to the presence of highly connected hubs." },
-      { front: "What are the main applications of social network analysis?", back: "Applications include disease modeling, marketing and influence maximization, recommendation systems, cybersecurity, and organizational analysis." }
+      { front: "1. What are LLM-driven social generative agents, and what capabilities do they possess beyond simply role-playing?", back: "They are AI-driven agents used for social experiments, surveys, and interviews. Beyond role-playing, they can create profiles, retain memory, reflect, and learn from interactions, enabling dynamic social simulations." },
+      { front: "2. Explain the difference between indegree and outdegree in a directed network, providing an example.", back: "Indegree is the number of incoming edges (e.g., number of followers on Twitter), while outdegree is the number of outgoing edges (e.g., number of people you follow)." },
+      { front: "3. Describe what closeness centrality measures and how it is calculated.", back: "Closeness centrality measures how close a node is to all others by summing the shortest path distances and taking the inverse." },
+      { front: "4. Explain the concept of betweenness centrality and why nodes with high betweenness centrality are significant.", back: "Betweenness centrality measures how often a node appears on the shortest paths between other nodes. High values indicate key bridges that control information flow." },
+      { front: "5. How does eigenvector centrality differ from degree centrality, and why is it considered a measure of 'quality over quantity'?", back: "Degree centrality counts direct connections, whereas eigenvector centrality prioritizes connections to influential nodes, making it a better measure of overall influence." },
+      { front: "6. According to Barabási, what is a surprising discovery of modern network theory?", back: "The universality of the network topology, where many real networks converge to similar architectures regardless of their age, function, and scope." },
+      { front: "7. What are the three main network formation models discussed in the lecture?", back: "The Erdös–Rényi Random Graph Model, the Small-world Random Graph Model, and the Barabasi-Albert (BA) model." },
+      { front: "8. Describe the Erdös–Rényi Random Graph Model denoted as Gn,p.", back: "A graph with n nodes where each possible edge (u,v) appears independently and identically distributed (i.i.d.) with a probability p." },
+      { front: "9. Describe the Erdös–Rényi Random Graph Model denoted as Gn,M.", back: "A graph chosen uniformly randomly from the collection of all graphs which have n nodes and M edges, where each edge is equally likely." },
+      { front: "10. What is the key observation about the degree distribution of many real-world networks that is not captured by the E-R or Small-world models?", back: "The tail of their degree distribution often follows a power law (p(k) ≈ k−γ), indicating a few highly connected 'hub' nodes and many nodes with few connections. These networks are inhomogeneous." },
+      { front: "11. What are the two main mechanisms involved in the Barabasi-Albert (BA) model of network formation?", back: "Growth: new nodes are added to the network over time. Preferential attachment: new nodes are more likely to connect to existing nodes with higher degrees." },
+      { front: "12. How does the Small-world model achieve both high clustering and small average shortest path length?", back: "By starting with a regular network that has high clustering and then introducing a small number of random shortcuts that drastically reduce the path lengths without significantly destroying the clustered structure." },
+      { front: "13. What happens to the Small-world network when the rewire probability (pr) is 0? What happens when pr is 1?", back: "When pr = 0, the network remains the original regular network. When pr = 1, the network becomes an Erdös–Rényi random graph." },
+      { front: "14. What is the 'rewiring' step in the Watts-Strogatz Small-world model and what is its purpose?", back: "For each edge, with a rewire probability (pr), one end of the edge is moved to a randomly chosen node. This introduces shortcuts between clusters, which significantly reduces the diameter (average shortest path length)." },
+      { front: "15. What is the key difference between linear and non-linear preferential attachment in network growth models?", back: "In linear preferential attachment, the probability of attachment is directly proportional to a node's degree. In non-linear preferential attachment, this relationship is non-linear, leading to different network structures." },
+      { front: "16. What are some examples of modifications or 'variants' of the basic Barabasi-Albert model?", back: "Non-linear preferential attachment, high degree cutoffs, age correction, and local-world evolving network model." },
+      { front: "17. What is the 'friendship paradox' and why is it relevant to social network analysis?", back: "The paradox states that most people have fewer friends than their friends have on average. This is relevant for influence spread and marketing strategies." },
+      { front: "18. How do community detection algorithms help in social network analysis?", back: "They identify clusters or groups within a network, helping to understand hidden structures and social dynamics." },
+      { front: "19. What does the clustering coefficient measure in a network?", back: "It measures the likelihood that a node’s neighbors are also connected, indicating the presence of tightly knit communities." },
+      { front: "20. Why are hubs important in scale-free networks?", back: "Hubs are highly connected nodes that play a crucial role in information flow, resilience, and influence distribution in networks." },
+      { front: "21. What is modularity in network analysis and why is it important?", back: "Modularity measures the strength of division of a network into modules or communities, helping in detecting real-world social structures." }
     ];
-    
-    var currentIndex = 0;
-    var answerShown = false;
-    
-    var cardFront = document.getElementById("card-front");
-    var cardBack = document.getElementById("card-back");
-    var toggleButton = document.getElementById("toggle-answer");
-    var nextButton = document.getElementById("next-card");
-    
-    function showCard(index) {
-      if (index < flashcards.length) {
-        cardFront.innerHTML = "<h2>" + flashcards[index].front + "</h2>";
-        cardBack.innerHTML = "<p>" + flashcards[index].back + "</p>";
-        cardBack.style.display = "none";
-        toggleButton.textContent = "Show Answer";
-        nextButton.style.display = "none";
-        answerShown = false;
-      } else {
-        cardFront.innerHTML = "<h2>All cards completed!</h2>";
-        cardBack.innerHTML = "";
-        toggleButton.style.display = "none";
-        nextButton.style.display = "none";
-      }
-    }
-    
-    toggleButton.addEventListener("click", function() {
-      if (!answerShown) {
-        cardBack.style.display = "block";
-        toggleButton.textContent = "Hide Answer";
-        nextButton.style.display = "inline-block";
-        answerShown = true;
-      } else {
-        cardBack.style.display = "none";
-        toggleButton.textContent = "Show Answer";
-        nextButton.style.display = "none";
-        answerShown = false;
-      }
-    });
-    
-    nextButton.addEventListener("click", function() {
-      currentIndex++;
-      showCard(currentIndex);
-    });
-    
-    // Initialize first card
     showCard(currentIndex);
   </script>
 </body>
